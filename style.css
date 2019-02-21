@@ -1,3 +1,15 @@
 .footer {
     background-color: #E9ECEF;
 }
+
+#my-books {
+    transition: .25s;
+}
+
+#my-books:hover {
+    transition: .5s;
+    background-color: #EFEFEF;
+    border-radius: 5px;
+
+    cursor: pointer;
+}
