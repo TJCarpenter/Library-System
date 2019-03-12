@@ -1,0 +1,916 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+        crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+        crossorigin="anonymous"></script>
+
+    <!-- Custom CSS Sheet -->
+    <link rel="stylesheet" href="style.css">
+
+    <title>Deving County Public Library</title>
+</head>
+
+<body>
+    <!-- Header -->
+    <div class="header">
+
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <!-- Navbar Logo -->
+            <div class="row w-100 m-0">
+                <div class="col">
+                    <a href="#" class="navbar-brand" style="position: relative; z-index: 2">
+                        <img src="./src/img/logo/logo_128.png" alt="logo" width="32" height="32">
+                        Deving County Public Library
+                    </a>
+                </div>
+
+                <div class="col float-right">
+                    <div class="navbar">
+                        <div class="btn-group ml-auto">
+                            <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown"
+                                aria-haspopup="true" aria-expanded="false">
+                                Scott, Michael
+                            </button>
+                            <form class="dropdown-menu p-4 dropdown-menu-right" style="width: 15rem">
+
+                                <button type="submit" class="btn btn-primary btn-block">Log Out</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </div>
+
+    <div class="row m-3">
+        <div class="col-4">
+            <div class="list-group list-group-flush" id="list-tab" role="tablist">
+                <!-- Staff -->
+                <h4 class="mt-3">Staff</h4>
+                <a class="list-group-item list-group-item-action" id="list-add-staff-list" data-toggle="list" href="#list-add-staff"
+                    role="tab" aria-controls="home">Add Staff Member</a>
+                <a class="list-group-item list-group-item-action" id="list-view-staff-list" data-toggle="list" href="#list-view-staff"
+                    role="tab" aria-controls="home">View Staff Member</a>
+
+
+
+                <!-- Members -->
+                <h4 class="mt-3">Members</h4>
+                <a class="list-group-item list-group-item-action" id="list-add-member-list" data-toggle="list" href="#list-add-member"
+                    role="tab" aria-controls="home">Add Member</a>
+                <a class="list-group-item list-group-item-action" id="list-view-member-list" data-toggle="list" href="#list-view-member"
+                    role="tab" aria-controls="home">View Member</a>
+
+
+                <!-- Books -->
+                <h4 class="mt-3">Books</h4>
+                <a class="list-group-item list-group-item-action" id="list-add-book-list" data-toggle="list" href="#list-add-book"
+                    role="tab" aria-controls="home">Add Book</a>
+                <a class="list-group-item list-group-item-action" id="list-view-book-list" data-toggle="list" href="#list-view-book"
+                    role="tab" aria-controls="home">View book</a>
+            </div>
+        </div>
+
+        <div class="col-8 p-5 border rounded">
+            <div class="tab-content" id="nav-tabContent">
+                <!-- Staff -->
+
+                <!-- Add Staff -->
+                <div class="my-2 tab-pane fade" id="list-add-staff" role="tabpanel" aria-labelledby="list-add-staff-list">
+                    <h3 class="text-center">Add Staff Member</h3>
+                    <hr>
+
+                    <div class="d-flex align-items-center">
+                        <img class="mx-auto" src="./src/img/placeholder/profile/profile_12.png" alt="">
+                    </div>
+
+                    <ul class="list-inline text-center mt-3">
+                        <li class="list-inline-item"><strong>Badge Number: </strong></li>
+                        <li class="list-inline-item">12345678</li> <!-- Add PHP Here-->
+                    </ul>
+
+                    <hr>
+
+                    <form action="">
+                        <!-- Basic Information -->
+                        <div class="form-group row mb-0">
+                            <label for="inputFirstName" class="col-sm-2 col-form-label my-1">First Name</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control my-1" id="inputFirstName" placeholder="First Name">
+                            </div>
+
+                            <label for="inputLastName" class="col-sm-2 col-form-label my-1">Last Name</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control my-1" id="inputLastName" placeholder="Last Name">
+                            </div>
+
+                            <label for="inputBirthdate" class="col-2 col-form-label my-1">Birthdate</label>
+                            <div class="col-10">
+                                <input class="form-control my-1" type="date" value="2019-05-11" id="inputBirthdate">
+                            </div>
+
+                            <label class="col-2 col-form-label my-1">Gender</label>
+                            <div class="form-check form-check-inline mx-3">
+                                <input class="form-check-input" type="radio" name="inlineRadioOptionsGender" id="inputMale"
+                                    value="male">
+                                <label class="form-check-label" for="inputMale">Male</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="inlineRadioOptionsGender" id="inputFemale"
+                                    value="female">
+                                <label class="form-check-label" for="inputFemale">Female</label>
+                            </div>
+                        </div>
+
+                        <br>
+
+                        <!-- Address Information -->
+                        <div class="form-row">
+                            <label for="inputStreet" class="col-sm-1 col-form-label my-1">Street</label>
+                            <div class="col-md-6">
+                                <input type="text" class="form-control my-1" id="inputStreet" placeholder="Street">
+                            </div>
+
+                            <label for="inputCity" class="col-sm-1 col-form-label my-1 text-right">City</label>
+                            <div class="col-md-4">
+                                <input type="text" class="form-control my-1" id="inputCity" placeholder="City">
+                            </div>
+
+
+                            <label for="inputState" class="col-sm-1 col-form-label my-1">State</label>
+                            <div class="col-md-5">
+                                <select id="inputState" class="form-control my-1">
+                                    <option selected>Choose...</option>
+                                    <option value="AL">Alabama</option>
+                                    <option value="AK">Alaska</option>
+                                    <option value="AZ">Arizona</option>
+                                    <option value="AR">Arkansas</option>
+                                    <option value="CA">California</option>
+                                    <option value="CO">Colorado</option>
+                                    <option value="CT">Connecticut</option>
+                                    <option value="DE">Delaware</option>
+                                    <option value="DC">District Of Columbia</option>
+                                    <option value="FL">Florida</option>
+                                    <option value="GA">Georgia</option>
+                                    <option value="HI">Hawaii</option>
+                                    <option value="ID">Idaho</option>
+                                    <option value="IL">Illinois</option>
+                                    <option value="IN">Indiana</option>
+                                    <option value="IA">Iowa</option>
+                                    <option value="KS">Kansas</option>
+                                    <option value="KY">Kentucky</option>
+                                    <option value="LA">Louisiana</option>
+                                    <option value="ME">Maine</option>
+                                    <option value="MD">Maryland</option>
+                                    <option value="MA">Massachusetts</option>
+                                    <option value="MI">Michigan</option>
+                                    <option value="MN">Minnesota</option>
+                                    <option value="MS">Mississippi</option>
+                                    <option value="MO">Missouri</option>
+                                    <option value="MT">Montana</option>
+                                    <option value="NE">Nebraska</option>
+                                    <option value="NV">Nevada</option>
+                                    <option value="NH">New Hampshire</option>
+                                    <option value="NJ">New Jersey</option>
+                                    <option value="NM">New Mexico</option>
+                                    <option value="NY">New York</option>
+                                    <option value="NC">North Carolina</option>
+                                    <option value="ND">North Dakota</option>
+                                    <option value="OH">Ohio</option>
+                                    <option value="OK">Oklahoma</option>
+                                    <option value="OR">Oregon</option>
+                                    <option value="PA">Pennsylvania</option>
+                                    <option value="RI">Rhode Island</option>
+                                    <option value="SC">South Carolina</option>
+                                    <option value="SD">South Dakota</option>
+                                    <option value="TN">Tennessee</option>
+                                    <option value="TX">Texas</option>
+                                    <option value="UT">Utah</option>
+                                    <option value="VT">Vermont</option>
+                                    <option value="VA">Virginia</option>
+                                    <option value="WA">Washington</option>
+                                    <option value="WV">West Virginia</option>
+                                    <option value="WI">Wisconsin</option>
+                                    <option value="WY">Wyoming</option>
+                                </select>
+                            </div>
+
+                            <label for="inputZip" class="col-sm-2 col-form-label my-1 text-right">ZIP Code</label>
+                            <div class="col-md-4">
+                                <input type="text" class="form-control my-1" id="inputStreet" placeholder="ZIP Code">
+                            </div>
+                        </div>
+
+                        <br>
+
+                        <!-- Contact Information -->
+                        <div class="form-row">
+                            <label for="inputPhoneNumber" class="col-sm-3 col-form-label my-1">Phone Number</label>
+                            <div class="col-sm-9">
+                                <input type="text" class="form-control my-1" id="inputPhoneNumber" placeholder="Phone Number">
+                            </div>
+
+                            <label for="inputEmail" class="col-sm-2 col-form-label my-1">Email</label>
+                            <div class="col-sm-10">
+                                <input type="email" class="form-control my-1" id="inputEmail" placeholder="Email">
+                            </div>
+                        </div>
+
+                        <br>
+
+                        <!-- Job Information -->
+                        <div class="form-row">
+                            <label for="inputJobTitle" class="col-sm-2 col-form-label my-1">Job Title</label>
+                            <div class="col-md-10">
+                                <select id="inputJobTitle" class="form-control my-1">
+                                    <option selected>Choose...</option>
+                                    <option value="manager">D000 - Manager</option>
+                                    <option value="library-director">D001 - Library Director</option>
+                                    <option value="librarian">D002 - Librarian</option>
+                                    <option value="librarian-assistant">D003 - Librarian Assistant</option>
+                                </select>
+                            </div>
+
+                            <label class="col-2 col-form-label my-1">Pay Style</label>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="inlineRadioOptionsPayStyle" id="inputHourly"
+                                    value="hourly" onclick="showHourly();" checked>
+                                <label class="form-check-label" for="inputHourly">Hourly</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="inlineRadioOptionsPayStyle" id="inputSalary"
+                                    value="salary" onclick="showSalary();">
+                                <label class="form-check-label" for="inputSalary">Salary</label>
+                            </div>
+
+
+
+                            <script>
+                                function showHourly() {
+                                    document.getElementById("hourly").style.display = "flex";
+                                    document.getElementById("salary").style.display = "none";
+                                }
+
+                                function showSalary() {
+                                    document.getElementById("hourly").style.display = "none";
+                                    document.getElementById("salary").style.display = "flex";
+                                }
+                            
+                            </script>
+
+                        </div>
+
+                        <!-- Hourly -->
+                        <div class="form-row" id="hourly">
+                            <label for="inputPayRate" class="col-sm-2 col-form-label my-1">Pay Rate</label>
+                            <div class="col-sm-4">
+                                <input type="text" class="form-control my-1" id="inputPayRate" placeholder="Pay Rate">
+                            </div>
+
+                            <label for="inputMaxHours" class="col-sm-2 col-form-label my-1 text-right">Max Hours</label>
+                            <div class="col-sm-4">
+                                <input type="text" class="form-control my-1" id="inputMaxHours" placeholder="Max Hours">
+                            </div>
+                        </div>
+
+                        <!-- Salary -->
+                        <div class="form-row" id="salary" style="display: none">
+                            <label for="inputPayRate" class="col-sm-2 col-form-label my-1">Annual Pay</label>
+                            <div class="col-sm-4">
+                                <input type="text" class="form-control my-1" id="inputPayRate" placeholder="Annual Pay">
+                            </div>
+                        </div>
+
+                        <hr>
+
+                        <!-- Submit -->
+                        <div class="text-center pt-4">
+                            <button type="submit" class="btn btn-primary w-50">Submit</button>
+                        </div>
+
+
+
+                    </form>
+
+                </div>
+
+                <!-- Edit Staff -->
+                <div class="my-2 tab-pane fade show active" id="list-view-staff" role="tabpanel" aria-labelledby="list-view-staff-list">
+                    <h3 class="text-center">View Staff Member</h3>
+
+                    <h5 class="text-center">Select a staff member to view, edit, or remove</h5>
+                    <hr>
+
+
+                    <div class="row border p-3 my-2">
+                        <!-- Image -->
+                        <div class="col-2">
+                            <div class="d-flex align-items-center">
+                                <img src="C:/Coding Folder/Web Dev/Library System/src/img/placeholder/profile/profile_12.png"
+                                    alt="Profile Picture" class="mx-auto" width="50" height="50">
+                            </div>
+
+                        </div>
+
+                        <!-- Name and Badge Number -->
+                        <div class="col-4">
+                            <div class="row text-left"><strong>Scott, Michael</strong></div>
+                            <div class="row text-left"><em>0123456789</em></div>
+                        </div>
+
+                        <!-- Job Title -->
+                        <div class="col-4 d-flex h-100 my-auto">
+                            <div class="col text-right"><strong>Manager</strong></div>
+                        </div>
+
+                        <!-- Edit View and Remove Button -->
+                        <div class="col-1 d-flex h-100 my-auto">
+                            <input class="" type="image" src="./src/icons/edit/edit.svg" alt="" width="30px" height="30px"
+                                data-toggle="modal" data-target="#modal-staff-1-edit">
+                        </div>
+                        <div class="col-1 d-flex h-100 my-auto">
+                            <input class="" type="image" src="./src/icons/remove/remove.svg" alt="" width="30px" height="30px"
+                                data-toggle="modal" data-target="#modal-staff-1-remove">
+                        </div>
+                        <!-- <button class="btn btn-secondary btn-block" data-toggle="modal" data-target="#modal-staff-1">Edit</button> -->
+                    </div>
+                </div>
+
+                <!-- Modal Edit-->
+                <div class="modal fade" id="modal-staff-1-edit" tabindex="-1" role="dialog">
+                    <div class="modal-dialog modal-dialog-centered" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLongTitle">Michael Scott</h5>
+                                <div class="col-2 d-flex h-100 my-auto">
+                                    <input type="image" src="./src/icons/lock/lock.svg" id="editlock" alt="" width="50%"
+                                        height="50%" onclick="unlock();">
+                                </div>
+
+                                <script>
+                                    function unlock() {
+                                            document.getElementById("editlock").src = "./src/icons/unlock/unlock.svg";
+                                            document.getElementById("editlock").setAttribute("onclick", "lock();");
+
+                                            
+                                            document.getElementById("editBadgenumber").disabled = false;
+                                            document.getElementById("editProfileImage").disabled = false;
+                                            document.getElementById("editPassword").disabled = false;
+                                            document.getElementById("editFirstName").disabled = false;
+                                            document.getElementById("editLastName").disabled = false;
+                                            document.getElementById("editBirthdate").disabled = false;
+                                            document.getElementById("editMale").disabled = false;
+                                            document.getElementById("editFemale").disabled = false;
+                                            document.getElementById("editStreet").disabled = false;
+                                            document.getElementById("editCity").disabled = false;
+                                            document.getElementById("editState").disabled = false;
+                                            document.getElementById("editZip").disabled = false;
+                                            document.getElementById("editPhoneNumber").disabled = false;
+                                            document.getElementById("editEmail").disabled = false;
+                                            document.getElementById("editJobTitle").disabled = false;
+                                            document.getElementById("editHourly").disabled = false;
+                                            document.getElementById("editSalary").disabled = false;
+                                            document.getElementById("inputPayRateHourly").disabled = false;
+                                            document.getElementById("inputPayRateSalary").disabled = false;
+                                            document.getElementById("inputMaxHours").disabled = false;
+                                            document.getElementById("admin-access").disabled = false;
+                                            document.getElementById("records-access").disabled = false;
+                                            document.getElementById("book-access").disabled = false;
+                                            document.getElementById("records-edit-access").disabled = false;
+                                            document.getElementById("book-edit-access").disabled = false;
+
+
+                                        }
+
+                                        function lock() {
+                                            document.getElementById("editlock").src = "./src/icons/lock/lock.svg";
+                                            document.getElementById("editlock").setAttribute("onclick", "unlock();");
+
+                                            document.getElementById("editBadgenumber").disabled = true;
+                                            document.getElementById("editProfileImage").disabled = true;
+                                            document.getElementById("editPassword").disabled = true;
+                                            document.getElementById("editFirstName").disabled = true;
+                                            document.getElementById("editLastName").disabled = true;
+                                            document.getElementById("editBirthdate").disabled = true;
+                                            document.getElementById("editMale").disabled = true;
+                                            document.getElementById("editFemale").disabled = true;
+                                            document.getElementById("editStreet").disabled = true;
+                                            document.getElementById("editCity").disabled = true;
+                                            document.getElementById("editState").disabled = true;
+                                            document.getElementById("editZip").disabled = true;
+                                            document.getElementById("editPhoneNumber").disabled = true;
+                                            document.getElementById("editEmail").disabled = true;
+                                            document.getElementById("editJobTitle").disabled = true;
+                                            document.getElementById("editHourly").disabled = true;
+                                            document.getElementById("editSalary").disabled = true;
+                                            document.getElementById("inputPayRateHourly").disabled = true;
+                                            document.getElementById("inputPayRateSalary").disabled = true;
+                                            document.getElementById("inputMaxHours").disabled = true;
+                                            document.getElementById("admin-access").disabled = true;
+                                            document.getElementById("records-access").disabled = true;
+                                            document.getElementById("book-access").disabled = true;
+                                            document.getElementById("records-edit-access").disabled = true;
+                                            document.getElementById("book-edit-access").disabled = true;
+                                        }
+                                    
+                                    </script>
+
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body p-4">
+
+                                <!-- Image -->
+                                <div class="form-group row">
+                                    <div class="col-5 d-flex align-items-center">
+                                        <img class="mx-auto" src="./src/img/placeholder/profile/profile_12.png" alt="">
+                                    </div>
+                                    <div class="col-7 d-flex h-100 my-auto">
+                                        <input class="custom-file-input w-75" type="file" name="imageFile" id="editProfileImage"
+                                            disabled>
+                                        <label class="custom-file-label w-75 mx-auto" for="exampleInputFile">
+                                            Select File
+                                        </label>
+                                    </div>
+                                </div>
+
+
+                                <hr>
+
+                                <!-- Badge Number and Password -->
+                                <div class="form-group row mb-0">
+                                    <!-- Badge Number -->
+                                    <label for="editFirstName" class="col-sm-4 col-form-label my-1">Badge Number</label>
+                                    <div class="col-sm-8">
+                                        <input type="text" class="form-control my-1" id="editBadgenumber" value="0123456789"
+                                            disabled>
+                                        <!-- ! Insert Value Here -->
+                                    </div>
+
+                                    <!-- Password -->
+                                    <label for="editLastName" class="col-sm-3 col-form-label my-1">Password</label>
+                                    <div class="col-sm-5">
+                                        <input type="password" class="form-control my-1" id="editPassword" value="boobz1"
+                                            disabled>
+                                        <!-- ! Insert Value Here -->
+                                    </div>
+
+                                    <!-- Password Visible -->
+                                    <div class="form-check my-auto">
+                                        <input class="form-check-input" type="checkbox" value="" id="password-visible"
+                                            onclick=showpassword();>
+                                        <label class="form-check-label" for="password-visible">
+                                            Show Password
+                                        </label>
+                                    </div>
+
+                                    <script>
+                                        function showpassword() {
+                                                        if (document.getElementById("editPassword").type == "text") {
+                                                            document.getElementById("editPassword").type = "password";
+                                                        } else {
+                                                            document.getElementById("editPassword").type = "text";
+                                                        }
+                                                    }
+                                                
+                                        </script>
+
+
+                                </div>
+
+                                <br>
+
+                                <!-- Name (First and Last) -->
+                                <div class="form-group row mb-0">
+                                    <!-- First Name -->
+                                    <label for="editFirstName" class="col-sm-3 col-form-label my-1">First Name</label>
+                                    <div class="col-sm-9">
+                                        <input type="text" class="form-control my-1" id="editFirstName" value="Michael"
+                                            disabled>
+                                        <!-- ! Insert Value Here -->
+                                    </div>
+
+                                    <!-- Last Name -->
+                                    <label for="editLastName" class="col-sm-3 col-form-label my-1">Last Name</label>
+                                    <div class="col-sm-9">
+                                        <input type="text" class="form-control my-1" id="editLastName" value="Scott"
+                                            disabled>
+                                        <!-- ! Insert Value Here -->
+                                    </div>
+
+                                    <!-- Birth Date -->
+                                    <label for="editBirthdate" class="col-2 col-form-label my-1">Birthdate</label>
+                                    <div class="col-10">
+                                        <input class="form-control my-1" type="date" id="editBirthdate" value="1964-03-15"
+                                            disabled>
+                                        <!-- ! Insert Value Here -->
+                                    </div>
+
+                                    <!-- Gender -->
+                                    <label class="col-2 col-form-label my-1">Gender</label>
+
+                                    <!-- Male -->
+                                    <div class="form-check form-check-inline mx-3">
+                                        <input class="form-check-input" type="radio" name="inlineRadioOptionsGender" id="editMale"
+                                            value="male" checked disabled> <!-- ! Check Value if True -->
+                                        <label class="form-check-label" for="editMale">Male</label>
+                                    </div>
+
+                                    <!-- Female -->
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="radio" name="inlineRadioOptionsGender" id="editFemale"
+                                            value="female" disabled> <!-- ! Check Value if True -->
+                                        <label class="form-check-label" for="editFemale">Female</label>
+                                    </div>
+                                </div>
+
+                                <br>
+
+                                <!-- Address Information -->
+                                <div class="form-row">
+                                    <!-- Street -->
+                                    <label for="editStreet" class="col-sm-2 col-form-label my-1">Street</label>
+                                    <div class="col-md-10">
+                                        <input type="text" class="form-control my-1" id="editStreet" value="42 Kellum Court"
+                                            disabled>
+                                        <!-- ! Insert Value Here -->
+                                    </div>
+
+                                    <!-- City -->
+                                    <label for="editCity" class="col-sm-1 col-form-label my-1 text-right">City</label>
+                                    <div class="col-md-5">
+                                        <input type="text" class="form-control my-1" id="editCity" value="Scranton"
+                                            disabled>
+                                        <!-- ! Insert Value Here -->
+                                    </div>
+
+                                    <!-- State -->
+                                    <label for="editState" class="col-sm-1 col-form-label my-1">State</label>
+                                    <!-- ! Select value in list with SELECTED tag -->
+                                    <div class="col-md-5">
+                                        <select id="editState" class="form-control my-1" disabled>
+                                            <option>Choose...</option>
+                                            <option value="AL">Alabama</option>
+                                            <option value="AK">Alaska</option>
+                                            <option value="AZ">Arizona</option>
+                                            <option value="AR">Arkansas</option>
+                                            <option value="CA">California</option>
+                                            <option value="CO">Colorado</option>
+                                            <option value="CT">Connecticut</option>
+                                            <option value="DE">Delaware</option>
+                                            <option value="DC">District Of Columbia</option>
+                                            <option value="FL">Florida</option>
+                                            <option value="GA">Georgia</option>
+                                            <option value="HI">Hawaii</option>
+                                            <option value="ID">Idaho</option>
+                                            <option value="IL">Illinois</option>
+                                            <option value="IN">Indiana</option>
+                                            <option value="IA">Iowa</option>
+                                            <option value="KS">Kansas</option>
+                                            <option value="KY">Kentucky</option>
+                                            <option value="LA">Louisiana</option>
+                                            <option value="ME">Maine</option>
+                                            <option value="MD">Maryland</option>
+                                            <option value="MA">Massachusetts</option>
+                                            <option value="MI">Michigan</option>
+                                            <option value="MN">Minnesota</option>
+                                            <option value="MS">Mississippi</option>
+                                            <option value="MO">Missouri</option>
+                                            <option value="MT">Montana</option>
+                                            <option value="NE">Nebraska</option>
+                                            <option value="NV">Nevada</option>
+                                            <option value="NH">New Hampshire</option>
+                                            <option value="NJ">New Jersey</option>
+                                            <option value="NM">New Mexico</option>
+                                            <option value="NY">New York</option>
+                                            <option value="NC">North Carolina</option>
+                                            <option value="ND">North Dakota</option>
+                                            <option value="OH">Ohio</option>
+                                            <option value="OK">Oklahoma</option>
+                                            <option value="OR">Oregon</option>
+                                            <option selected value="PA">Pennsylvania</option> <!-- ! Like this  -->
+                                            <option value="RI">Rhode Island</option>
+                                            <option value="SC">South Carolina</option>
+                                            <option value="SD">South Dakota</option>
+                                            <option value="TN">Tennessee</option>
+                                            <option value="TX">Texas</option>
+                                            <option value="UT">Utah</option>
+                                            <option value="VT">Vermont</option>
+                                            <option value="VA">Virginia</option>
+                                            <option value="WA">Washington</option>
+                                            <option value="WV">West Virginia</option>
+                                            <option value="WI">Wisconsin</option>
+                                            <option value="WY">Wyoming</option>
+                                        </select>
+                                    </div>
+
+                                    <!-- Zip Code -->
+                                    <label for="editZip" class="col-sm-2 col-form-label my-1 text-right">ZIP Code</label>
+                                    <div class="col-md-4">
+                                        <input type="text" class="form-control my-1" id="editZip" value="18505"
+                                            disabled>
+                                        <!-- ! Insert Value Here -->
+                                    </div>
+                                </div>
+
+                                <br>
+
+                                <!-- Contact Information -->
+                                <div class="form-row">
+                                    <!-- Phone Number -->
+                                    <label for="editPhoneNumber" class="col-sm-4 col-form-label my-1">Phone Number</label>
+                                    <div class="col-sm-8">
+                                        <input type="text" class="form-control my-1" id="editPhoneNumber" value="8675309"
+                                            disabled>
+                                        <!-- ! Insert Value Here -->
+                                    </div>
+
+                                    <!-- Email -->
+                                    <label for="editEmail" class="col-sm-2 col-form-label my-1">Email</label>
+                                    <div class="col-sm-10">
+                                        <input type="email" class="form-control my-1" id="editEmail" value="mscott@dundermifflin.com"
+                                            disabled>
+                                        <!-- ! Insert Value Here -->
+                                    </div>
+                                </div>
+
+                                <br>
+
+                                <!-- Job Information -->
+                                <div class="form-row">
+                                    <!-- Job Title -->
+                                    <label for="editJobTitle" class="col-sm-2 col-form-label my-1">Job Title</label>
+                                    <!-- ! Select value in list with SELECTED tag -->
+                                    <div class="col-md-10">
+                                        <select id="editJobTitle" class="form-control my-1" disabled>
+                                            <option>Choose...</option>
+                                            <option selected value="manager">D000 - Manager</option>
+                                            <!-- ! Like this -->
+                                            <option value="library-director">D001 - Library Director</option>
+                                            <option value="librarian">D002 - Librarian</option>
+                                            <option value="librarian-assistant">D003 - Librarian Assistant</option>
+                                        </select>
+                                    </div>
+
+                                    <!-- Pay Style -->
+                                    <label class="col-2 col-form-label my-1">Pay Style</label>
+
+                                    <!-- Hourly -->
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="radio" name="inlineRadioOptionsPayStyleEdit"
+                                            id="editHourly" value="hourly" onclick="showHourlyEdit();" disabled>
+                                        <!-- ! Check Value if True -->
+                                        <label class="form-check-label" for="editHourly">Hourly</label>
+                                    </div>
+
+                                    <!-- Salary -->
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="radio" name="inlineRadioOptionsPayStyleEdit"
+                                            id="editSalary" value="salary" onclick="showSalaryEdit();" checked disabled>
+                                        <!-- ! Check Value if True -->
+                                        <label class="form-check-label" for="editSalary">Salary</label>
+                                    </div>
+
+
+
+                                    <script>
+                                        function showHourlyEdit() {
+                                                    document.getElementById("hourlyEdit").style.display = "flex";
+                                                    document.getElementById("salaryEdit").style.display = "none";
+                                                }
+                
+                                                function showSalaryEdit() {
+                                                    document.getElementById("hourlyEdit").style.display = "none";
+                                                    document.getElementById("salaryEdit").style.display = "flex";
+                                                }
+                                            
+                                            </script>
+
+                                </div>
+
+                                <!-- Hourly -->
+                                <div class="form-row" id="hourlyEdit" style="display: none">
+                                    <!-- If salary, display as none -->
+                                    <label for="inputPayRateHourly" class="col-sm-2 col-form-label my-1">Pay Rate</label>
+                                    <div class="col-sm-4">
+                                        <input type="text" class="form-control my-1" id="inputPayRateHourly" value=""
+                                            disabled>
+                                        <!-- ! Insert Value Here if applicable -->
+                                    </div>
+
+                                    <label for="inputMaxHours" class="col-sm-3 col-form-label my-1 text-right">Max
+                                        Hours</label>
+                                    <div class="col-sm-3">
+                                        <input type="text" class="form-control my-1" id="inputMaxHours" value=""
+                                            disabled>
+                                        <!-- ! Insert Value Here if applicable -->
+                                    </div>
+                                </div>
+
+                                <!-- Salary -->
+                                <div class="form-row" id="salaryEdit" style="display: flex">
+                                    <!-- If hourly, display as none -->
+                                    <label for="inputPayRateSalary" class="col-sm-3 col-form-label my-1">Annual Pay</label>
+                                    <div class="col-sm-4">
+                                        <input type="text" class="form-control my-1" id="inputPayRateSalary" value="78994"
+                                            disabled>
+                                        <!-- ! Insert Value Here if applicable -->
+                                    </div>
+                                </div>
+
+                                <br>
+
+                                <!-- Access Truth Table -->
+                                <div class="form-row">
+                                    <div class="col-6">
+                                        <h5>Read Access</h5>
+
+                                        <div class="form-check ml-3">
+                                            <input class="form-check-input" type="checkbox" value="" id="admin-access"
+                                                checked disabled> <!-- ! Check Value if True -->
+                                            <label class="form-check-label" for="admin-access">
+                                                Admin Access
+                                            </label>
+                                        </div>
+
+                                        <div class="form-check ml-3">
+                                            <input class="form-check-input" type="checkbox" value="" id="records-access"
+                                                checked disabled> <!-- ! Check Value if True -->
+                                            <label class="form-check-label" for="records-access">
+                                                Records Access
+                                            </label>
+                                        </div>
+
+                                        <div class="form-check ml-3">
+                                            <input class="form-check-input" type="checkbox" value="" id="book-access"
+                                                checked disabled> <!-- ! Check Value if True -->
+                                            <label class="form-check-label" for="book-access">
+                                                Book Access
+                                            </label>
+                                        </div>
+                                    </div>
+
+                                    <br>
+
+                                    <div class="col-6">
+                                        <h5>Write Access</h5>
+
+                                        <div class="form-check ml-3">
+                                            <input class="form-check-input" type="checkbox" value="" id="records-edit-access"
+                                                checked disabled> <!-- ! Check Value if True -->
+                                            <label class="form-check-label" for="records-edit-access">
+                                                Records Edit Access
+                                            </label>
+                                        </div>
+
+
+                                        <div class="form-check ml-3">
+                                            <input class="form-check-input" type="checkbox" value="" id="book-edit-access"
+                                                checked disabled> <!-- ! Check Value if True -->
+                                            <label class="form-check-label" for="book-edit-access">
+                                                Book Edit Access
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-primary">Save changes</button>
+                                <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="modal fade" id="modal-staff-1-remove" tabindex="-1" role="dialog">
+                    <div class="modal-dialog modal-dialog-centered" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLongTitle">Remove Employee</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <div class="row">
+                                    <div class="col-4">
+                                        <div class="d-flex align-items-center">
+                                            <img src="C:/Coding Folder/Web Dev/Library System/src/img/placeholder/profile/profile_12.png"
+                                                alt="Profile Picture" class="mx-auto" width="50" height="50">
+                                        </div>
+    
+                                    </div>
+    
+                                    <!-- Name and Badge Number -->
+                                    <div class="col-4">
+                                        <div class="row text-left"><strong>Scott, Michael</strong></div>
+                                        <div class="row text-left"><em>0123456789</em></div>
+                                    </div>
+    
+                                    <!-- Job Title -->
+                                    <div class="col-4 d-flex h-100 my-auto">
+                                        <div class="col text-center"><strong>Manager</strong></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-danger">Remove Employee</button>
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+
+                <!-- Member -->
+
+                <!-- Add Member -->
+                <div class="my-2 tab-pane fade" id="list-add-member" role="tabpanel" aria-labelledby="list-add-member-list">
+                    <h3 class="text-center">Add Member</h3>
+                    <hr>
+
+
+                </div>
+
+                <!-- Edit Member -->
+                <div class="my-2 tab-pane fade" id="list-edit-member" role="tabpanel" aria-labelledby="list-edit-member-list">
+                    <h3 class="text-center">Edit Member</h3>
+                    <hr>
+
+
+                </div>
+
+                <!-- Remove Member -->
+                <div class="my-2 tab-pane fade" id="list-remove-member" role="tabpanel" aria-labelledby="list-remove-member-list">
+                    <h3 class="text-center">Remove Member</h3>
+                    <hr>
+
+
+                </div>
+
+                <!-- View Member -->
+                <div class="my-2 tab-pane fade" id="list-view-member" role="tabpanel" aria-labelledby="list-view-member-list">
+                    <h3 class="text-center">View Member</h3>
+                    <hr>
+
+
+                </div>
+
+
+                <!-- Book -->
+
+                <!-- Add Book -->
+                <div class="my-2 tab-pane fade" id="list-add-book" role="tabpanel" aria-labelledby="list-add-book-list">
+                    <h3 class="text-center">Add Book</h3>
+                    <hr>
+
+
+                </div>
+
+                <!-- Edit Book -->
+                <div class="my-2 tab-pane fade" id="list-edit-book" role="tabpanel" aria-labelledby="list-edit-book-list">
+                    <h3 class="text-center">Edit Book</h3>
+                    <hr>
+
+
+                </div>
+
+                <!-- Remove Book -->
+                <div class="my-2 tab-pane fade" id="list-remove-book" role="tabpanel" aria-labelledby="list-remove-book-list">
+                    <h3 class="text-center">Remove Book</h3>
+                    <hr>
+
+
+                </div>
+
+                <!-- View Book -->
+                <div class="my-2 tab-pane fade" id="list-view-book" role="tabpanel" aria-labelledby="list-view-book-list">
+                    <h3 class="text-center">View Book</h3>
+                    <hr>
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="footer" style="height: 500px">
+
+
+    </div>
+</body>

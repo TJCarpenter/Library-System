@@ -1,0 +1,230 @@
+
+<!-- Add Staff Member Header -->
+<div class="my-2 tab-pane fade" id="list-add-member" role="tabpanel" aria-labelledby="list-add-member-list">
+        <h3 class="text-center">Add Member</h3>
+        <hr>
+    
+        <div class="d-flex align-items-center">
+            <img class="mx-auto" src="./src/img/placeholder/profile/profile_12.png" alt="">
+        </div>
+        
+        <hr>
+   
+        <!-- Member Add Form -->
+        <form action="../../../../php/functions/add-member.php" method="POST">
+
+            <!-- Card Number -->
+            <div class="row my-3 w-50 mx-auto">
+                <label for="card_number_member" class="col-5 col-form-label my-1">Card Number</label>
+                <div class="col-7">
+                    <input name="member_card_number" type="text" class="form-control my-1 text-center" id="card_number_member" readonly>
+                </div>
+            </div>
+
+            <!-- PIN -->
+            <div class="row my-3 w-50 mx-auto">
+                <label for="card_pin_member" class="col-5 col-form-label my-1">PIN</label>
+                <div class="col-7">
+                    <input name="member_pin" type="text" class="form-control my-1 text-center" id="card_pin_member" readonly>
+                </div>
+            </div>
+
+            <hr>
+    
+            <!-- Basic Information -->
+            <!-- 
+                DB input:
+                    member_first_name [varchar(255)]
+                    member_last_name [varchar(255)]
+                    member_birthdate [date] -> Must be 13 or older to have a membership      
+            -->
+            <div class="form-group row mb-0">
+    
+                <!-- First Name Input -->
+                <label for="input_First_Name_Member" class="col-sm-2 col-form-label my-1">First Name</label>
+                <div class="col-sm-10">
+                    <input name="member_first_name" type="text" class="form-control my-1" id="input_First_Name_Member" placeholder="First Name">
+                </div>
+    
+                <!-- Last Name Input -->
+                <label for="input_Last_Name_Member" class="col-sm-2 col-form-label my-1">Last Name</label>
+                <div class="col-sm-10">
+                    <input name="member_last_name" type="text" class="form-control my-1" id="input_Last_Name_Member" placeholder="Last Name">
+                </div>
+    
+                <!-- Birthdate -->
+                <label for="input_Birthdate_Member" class="col-2 col-form-label my-1">Birthdate</label>
+                <div class="col-10">
+                    <input name="member_birthdate" class="form-control my-1" type="date" value="2019-05-11" id="input_Birthdate_Member" onchange="checkage();">
+                    <div class="invalid-feedback">
+                        Member must be 13 years or older.
+                    </div>
+                </div>
+
+                <!-- Check to see if the member is above the age of 13 -->
+                <script>
+                    function checkage() {
+                        var ageDate = new Date(Date.now() - Date.parse(document.getElementById("input_Birthdate_Member").value));
+
+                        if(Math.abs(ageDate.getUTCFullYear() - 1970) < 13) {
+                            document.getElementById("input_Birthdate_Member").classList.add("is-invalid");
+                        } else {
+                            document.getElementById("input_Birthdate_Member").classList.remove("is-invalid");
+                        }
+                    }
+                </script>
+    
+            </div>
+    
+            <br>
+    
+            <!-- Address Information -->
+            <!-- 
+                DB Input:
+                    member_street [varchar(255)]
+                    member_city [varchar(255)]
+                    member_state [varchar(255)]
+                    member_zipcode [int(10)]
+             -->
+            <div class="form-row">
+                
+                <!-- Street Name Input-->
+                <label for="input_Street_Member" class="col-sm-1 col-form-label my-1">Street</label>
+                <div class="col-md-6">
+                    <input name="member_street" type="text" class="form-control my-1" id="input_Street_Member" placeholder="Street">
+                </div>
+    
+                <!-- City Name Input-->
+                <label for="input_City_Member" class="col-sm-1 col-form-label my-1 text-right">City</label>
+                <div class="col-md-4">
+                    <input name="member_city" type="text" class="form-control my-1" id="input_City_Member" placeholder="City">
+                </div>
+    
+                <!-- State Input -->
+                <label for="input_State_Member" class="col-sm-1 col-form-label my-1">State</label>
+                <div class="col-md-5">
+                    <select name="member_state" id="input_State_Member" class="form-control my-1">
+                        <option selected>Choose...</option>
+                        <option value="AL">Alabama</option>
+                        <option value="AK">Alaska</option>
+                        <option value="AZ">Arizona</option>
+                        <option value="AR">Arkansas</option>
+                        <option value="CA">California</option>
+                        <option value="CO">Colorado</option>
+                        <option value="CT">Connecticut</option>
+                        <option value="DE">Delaware</option>
+                        <option value="DC">District Of Columbia</option>
+                        <option value="FL">Florida</option>
+                        <option value="GA">Georgia</option>
+                        <option value="HI">Hawaii</option>
+                        <option value="ID">Idaho</option>
+                        <option value="IL">Illinois</option>
+                        <option value="IN">Indiana</option>
+                        <option value="IA">Iowa</option>
+                        <option value="KS">Kansas</option>
+                        <option value="KY">Kentucky</option>
+                        <option value="LA">Louisiana</option>
+                        <option value="ME">Maine</option>
+                        <option value="MD">Maryland</option>
+                        <option value="MA">Massachusetts</option>
+                        <option value="MI">Michigan</option>
+                        <option value="MN">Minnesota</option>
+                        <option value="MS">Mississippi</option>
+                        <option value="MO">Missouri</option>
+                        <option value="MT">Montana</option>
+                        <option value="NE">Nebraska</option>
+                        <option value="NV">Nevada</option>
+                        <option value="NH">New Hampshire</option>
+                        <option value="NJ">New Jersey</option>
+                        <option value="NM">New Mexico</option>
+                        <option value="NY">New York</option>
+                        <option value="NC">North Carolina</option>
+                        <option value="ND">North Dakota</option>
+                        <option value="OH">Ohio</option>
+                        <option value="OK">Oklahoma</option>
+                        <option value="OR">Oregon</option>
+                        <option value="PA">Pennsylvania</option>
+                        <option value="RI">Rhode Island</option>
+                        <option value="SC">South Carolina</option>
+                        <option value="SD">South Dakota</option>
+                        <option value="TN">Tennessee</option>
+                        <option value="TX">Texas</option>
+                        <option value="UT">Utah</option>
+                        <option value="VT">Vermont</option>
+                        <option value="VA">Virginia</option>
+                        <option value="WA">Washington</option>
+                        <option value="WV">West Virginia</option>
+                        <option value="WI">Wisconsin</option>
+                        <option value="WY">Wyoming</option>
+                    </select>
+                </div>
+    
+                <!-- State Input -->
+                <label for="input_Zip_member" class="col-sm-2 col-form-label my-1 text-right">ZIP Code</label>
+                <div class="col-md-4">
+                    <input name="member_zipcode" type="text" class="form-control my-1" id="input_Zip_member" placeholder="ZIP Code">
+                </div>
+            </div>
+    
+            <br>
+    
+    
+            <!-- Contact Information -->
+            <!-- 
+                DB Input:
+                    member_phone_number [varchar(255)]
+                    member_email [varchar(255)]
+             -->
+            <div class="form-row">
+    
+                <!-- Phone Number -->
+                <label for="input_Phone_Number_Member" class="col-sm-3 col-form-label my-1">Phone Number</label>
+                <div class="col-sm-9">
+                    <input name="member_phone_number" type="text" class="form-control my-1" id="input_Phone_Number_Member" placeholder="Phone Number">
+                </div>
+    
+                <!-- Email Input -->
+                <label for="input_Email_Member" class="col-sm-2 col-form-label my-1">Email</label>
+                <div class="col-sm-10">
+                    <input name="member_email" type="email" class="form-control my-1" id="input_Email_Member" placeholder="Email" oninput="validateEmail();">
+                    <div class="invalid-feedback">
+                        Email Invalid.
+                    </div>
+                </div>
+
+                <!-- Validate Email Input -->
+                <script>
+                    function validateEmail() {
+                        var email = document.getElementById("input_Email_Member").value
+                        var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+                        
+                        if(re.test(email)) {
+                            document.getElementById("input_Email_Member").classList.remove("is-invalid");
+                        } else {
+                            document.getElementById("input_Email_Member").classList.add("is-invalid");
+                        }
+                    }              
+                </script> 
+            </div>
+    
+            <hr>
+       
+            <!-- Submit -->
+            <div class="text-center pt-4">
+                <button type="submit" class="btn btn-primary w-50">Submit</button>
+            </div>
+    
+        </form>
+
+        <script>
+            window.onload = function() {
+                var card_number = Math.random().toString().slice(2,15);
+
+                if (document.getElementById("card_number_member").value == "" ) {
+                    document.getElementById("card_number_member").value = card_number
+                    document.getElementById("card_pin_member").value = (document.getElementById("card_number_member").value).substr((document.getElementById("card_number_member").value).length - 4);
+                }
+            }
+        </script>
+    
+    </div>

@@ -1,0 +1,312 @@
+<!-- Edit Staff -->
+<div class="my-2 tab-pane fade" id="list-view-member" role="tabpanel" aria-labelledby="list-view-member-list">
+    <h3 class="text-center">View Member</h3>
+
+    <h5 class="text-center">Select a member to view, edit, or remove</h5>
+    <hr>
+
+
+    <div class="row border p-3 my-2">
+        <!-- Image -->
+        <div class="col-2">
+            <div class="d-flex align-items-center">
+                <img src="../../../../src/img/placeholder/profile/profile_12.png" alt="Profile Picture"
+                    class="mx-auto" width="50" height="50">
+            </div>
+
+        </div>
+
+        <!-- Name and Badge Number -->
+        <div class="col-4 d-flex h-100 my-auto">
+            <div class="row text-left"><strong>Scott, Michael</strong></div>
+        </div>
+
+        <!-- Job Title -->
+        <div class="col-4 d-flex h-100 my-auto">
+            <div class="row mx-auto"><em>0123456789</em></div>
+        </div>
+
+        <!-- Edit View and Remove Button -->
+        <div class="col-1 d-flex h-100 my-auto">
+            <input class="" type="image" src="./src/icons/edit/edit.svg" alt="" width="30px" height="30px" data-toggle="modal"
+                data-target="#modal-member-1-edit">
+        </div>
+        <div class="col-1 d-flex h-100 my-auto">
+            <input class="" type="image" src="./src/icons/remove/remove.svg" alt="" width="30px" height="30px"
+                data-toggle="modal" data-target="#modal-member-1-remove">
+        </div>
+        <!-- <button class="btn btn-secondary btn-block" data-toggle="modal" data-target="#modal-staff-1">Edit</button> -->
+    </div>
+    <div class="row border p-3 my-2">
+            <!-- Image -->
+            <div class="col-2">
+                <div class="d-flex align-items-center">
+                    <img src="../../../../src/img/placeholder/profile/profile_12.png" alt="Profile Picture"
+                        class="mx-auto" width="50" height="50">
+                </div>
+    
+            </div>
+    
+            <!-- Name and Badge Number -->
+            <div class="col-4 d-flex h-100 my-auto">
+                <div class="row text-left"><strong>Scott, Michael</strong></div>
+            </div>
+    
+            <!-- Job Title -->
+            <div class="col-4 d-flex h-100 my-auto">
+                <div class="row mx-auto"><em>0123456789</em></div>
+            </div>
+    
+            <!-- Edit View and Remove Button -->
+            <div class="col-1 d-flex h-100 my-auto">
+                <input class="" type="image" src="./src/icons/edit/edit.svg" alt="" width="30px" height="30px" data-toggle="modal"
+                    data-target="#modal-member-1-edit">
+            </div>
+            <div class="col-1 d-flex h-100 my-auto">
+                <input class="" type="image" src="./src/icons/remove/remove.svg" alt="" width="30px" height="30px"
+                    data-toggle="modal" data-target="#modal-member-1-remove">
+            </div>
+            <!-- <button class="btn btn-secondary btn-block" data-toggle="modal" data-target="#modal-staff-1">Edit</button> -->
+        </div>
+</div>
+
+<!-- Modal Edit-->
+<div class="modal fade" id="modal-member-1-edit" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLongTitle">Michael Scott</h5>
+                <div class="col-2 d-flex h-100 my-auto">
+                    <input type="image" src="./src/icons/lock/lock.svg" id="edit_lock_Member" alt="" width="50%" height="50%"
+                        onclick="unlock();">
+                </div>
+
+                <script>
+                    function unlock() {
+                        document.getElementById("edit_lock_Member").src = "./src/icons/unlock/unlock.svg";
+                        document.getElementById("edit_lock_Member").setAttribute("onclick", "lock();");
+
+                        
+                        document.getElementById("edit_First_Name_Member").disabled = false;
+                        document.getElementById("edit_Last_Name_Member").disabled = false;
+                        document.getElementById("edit_Birthdate_Member").disabled = false;
+                        document.getElementById("edit_Street_Member").disabled = false;
+                        document.getElementById("edit_City_Member").disabled = false;
+                        document.getElementById("edit_State_Member").disabled = false;
+                        document.getElementById("edit_Zip_member").disabled = false;
+                        document.getElementById("edit_Phone_Number_Member").disabled = false;
+                        document.getElementById("edit_Email_Member").disabled = false;
+
+                    }
+
+                    function lock() {
+                        document.getElementById("edit_lock_Member").src = "./src/icons/lock/lock.svg";
+                        document.getElementById("edit_lock_Member").setAttribute("onclick", "unlock();");
+
+                        document.getElementById("edit_First_Name_Member").disabled = true;
+                        document.getElementById("edit_Last_Name_Member").disabled = true;
+                        document.getElementById("edit_Birthdate_Member").disabled = true;
+                        document.getElementById("edit_Street_Member").disabled = true;
+                        document.getElementById("edit_City_Member").disabled = true;
+                        document.getElementById("edit_State_Member").disabled = true;
+                        document.getElementById("edit_Zip_member").disabled = true;
+                        document.getElementById("edit_Phone_Number_Member").disabled = true;
+                        document.getElementById("edit_Email_Member").disabled = true;
+                    }
+                
+                </script>
+
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body p-4">
+
+                <div class="form-group row mb-0">
+
+                    <!-- First Name Input -->
+                    <label for="edit_First_Name_Member" class="col-sm-2 col-form-label my-1">First Name</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control my-1" id="edit_First_Name_Member" placeholder="First Name"
+                            disabled>
+                    </div>
+
+                    <!-- Last Name Input -->
+                    <label for="edit_Last_Name_Member" class="col-sm-2 col-form-label my-1">Last Name</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control my-1" id="edit_Last_Name_Member" placeholder="Last Name"
+                            disabled>
+                    </div>
+
+                    <!-- Birthdate -->
+                    <label for="edit_Birthdate_Member" class="col-2 col-form-label my-1">Birthdate</label>
+                    <div class="col-10">
+                        <input class="form-control my-1" type="date" value="2019-05-11" id="edit_Birthdate_Member"
+                            disabled>
+                    </div>
+
+                </div>
+
+                <br>
+
+                <!-- Address Information -->
+                <!-- 
+                    DB Input:
+                        member_street [varchar(255)]
+                        member_city [varchar(255)]
+                        member_state [varchar(255)]
+                        member_zip [int(10)]
+                -->
+                <div class="form-row">
+
+                    <!-- Street Name Input-->
+                    <label for="edit_Street_Member" class="col-sm-2 col-form-label my-1">Street</label>
+                    <div class="col-md-5">
+                        <input type="text" class="form-control my-1" id="edit_Street_Member" placeholder="Street"
+                            disabled>
+                    </div>
+
+                    <!-- City Name Input-->
+                    <label for="edit_City_Member" class="col-sm-2 col-form-label my-1 text-right">City</label>
+                    <div class="col-md-3">
+                        <input type="text" class="form-control my-1" id="edit_City_Member" placeholder="City" disabled>
+                    </div>
+
+                    <!-- State Input -->
+                    <label for="edit_State_Member" class="col-sm-2 col-form-label my-1">State</label>
+                    <div class="col-md-4">
+                        <select id="edit_State_Member" class="form-control my-1" disabled>
+                            <option selected>Choose...</option>
+                            <option value="AL">Alabama</option>
+                            <option value="AK">Alaska</option>
+                            <option value="AZ">Arizona</option>
+                            <option value="AR">Arkansas</option>
+                            <option value="CA">California</option>
+                            <option value="CO">Colorado</option>
+                            <option value="CT">Connecticut</option>
+                            <option value="DE">Delaware</option>
+                            <option value="DC">District Of Columbia</option>
+                            <option value="FL">Florida</option>
+                            <option value="GA">Georgia</option>
+                            <option value="HI">Hawaii</option>
+                            <option value="ID">Idaho</option>
+                            <option value="IL">Illinois</option>
+                            <option value="IN">Indiana</option>
+                            <option value="IA">Iowa</option>
+                            <option value="KS">Kansas</option>
+                            <option value="KY">Kentucky</option>
+                            <option value="LA">Louisiana</option>
+                            <option value="ME">Maine</option>
+                            <option value="MD">Maryland</option>
+                            <option value="MA">Massachusetts</option>
+                            <option value="MI">Michigan</option>
+                            <option value="MN">Minnesota</option>
+                            <option value="MS">Mississippi</option>
+                            <option value="MO">Missouri</option>
+                            <option value="MT">Montana</option>
+                            <option value="NE">Nebraska</option>
+                            <option value="NV">Nevada</option>
+                            <option value="NH">New Hampshire</option>
+                            <option value="NJ">New Jersey</option>
+                            <option value="NM">New Mexico</option>
+                            <option value="NY">New York</option>
+                            <option value="NC">North Carolina</option>
+                            <option value="ND">North Dakota</option>
+                            <option value="OH">Ohio</option>
+                            <option value="OK">Oklahoma</option>
+                            <option value="OR">Oregon</option>
+                            <option value="PA">Pennsylvania</option>
+                            <option value="RI">Rhode Island</option>
+                            <option value="SC">South Carolina</option>
+                            <option value="SD">South Dakota</option>
+                            <option value="TN">Tennessee</option>
+                            <option value="TX">Texas</option>
+                            <option value="UT">Utah</option>
+                            <option value="VT">Vermont</option>
+                            <option value="VA">Virginia</option>
+                            <option value="WA">Washington</option>
+                            <option value="WV">West Virginia</option>
+                            <option value="WI">Wisconsin</option>
+                            <option value="WY">Wyoming</option>
+                        </select>
+                    </div>
+
+                    <!-- State Input -->
+                    <label for="edit_Zip_member" class="col-sm-2 col-form-label my-1 text-right">ZIP Code</label>
+                    <div class="col-md-4">
+                        <input type="text" class="form-control my-1" id="edit_Zip_member" placeholder="ZIP Code"
+                            disabled>
+                    </div>
+                </div>
+
+                <br>
+
+
+                <!-- Contact Information -->
+                <!-- 
+                DB Input:
+                    member_phone_number [varchar(255)]
+                    member_email [varchar(255)]
+                -->
+                <div class="form-row">
+
+                    <!-- Phone Number -->
+                    <label for="edit_Phone_Number_Member" class="col-sm-4 col-form-label my-1">Phone Number</label>
+                    <div class="col-sm-8">
+                        <input type="text" class="form-control my-1" id="edit_Phone_Number_Member" placeholder="Phone Number"
+                            disabled>
+                    </div>
+
+                    <!-- Email Input -->
+                    <label for="edit_Email_Member" class="col-sm-2 col-form-label my-1">Email</label>
+                    <div class="col-sm-10">
+                        <input type="email" class="form-control my-1" id="edit_Email_Member" placeholder="Email"
+                            disabled>
+                    </div>
+
+                </div>
+
+                <br>
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary">Save changes</button>
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<div class="modal fade" id="modal-member-1-remove" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="modal_title">Remove Member</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-6">
+                        <div class="d-flex align-items-center">
+                            <img src="../../../../src/img/placeholder/profile/profile_12.png"
+                                alt="Profile Picture" class="mx-auto" width="50" height="50">
+                        </div>
+
+                    </div>
+
+                    <!-- Name and Badge Number -->
+                    <div class="col-6">
+                        <div class="row text-left"><strong>Scott, Michael</strong></div>
+                        <div class="row text-left"><em>0123456789</em></div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger">Remove Member</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+            </div>
+        </div>
+    </div>

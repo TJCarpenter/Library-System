@@ -1,23 +1,38 @@
 <?php
-//include("./pages/index-page/shell.html");
-//include("./pages/index-page/header/header-logged-in.html");
 
-//include("./pages/index-page/footer.html");
+// HTML Shell
+include("./pages/all/shell.html");
 
-// Connect to the Database using the INI file in ./db
+//include("./pages/home/footer.html");
 
-// Collect the information from the INI
-$ini_array = parse_ini_file("./db/db.ini");
+// Connect to the Database
+include_once("./php/functions/connect.php");
+$conn = connect();
 
-// Create Connection
-$conn = new mysqli($ini_array['servername'], $ini_array['username'], $ini_array['password']);
+// Start the session
+session_start();
+//$_SESSION['cardnumber'] = 1;
 
-// Test the connection
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-} 
-echo "Connected successfully";
+// Check if the user is logged in or not
+if (isset($_SESSION['cardnumber'])) {
+    // User is logged in
+    include("./pages/home/header/header-logged-in.html");
+
+} else {
+    // User is not logged in
+    include("./pages/home/header/header-not-logged-in.html");
+
+}
+
+// Book Search
+include("./pages/home/search-bar.html");
+
+// Book Suggestion
+include("./pages/home/book-suggestions.html");
 
 
+include("./pages/home/footer.html");
+
+session_destroy();
 
 ?>

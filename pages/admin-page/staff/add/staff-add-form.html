@@ -1,0 +1,688 @@
+
+<!-- Add Staff Member Header -->
+<div class="my-2 tab-pane fade show active" id="list-add-staff" role="tabpanel" aria-labelledby="list-add-staff-list">
+    <h3 class="text-center">Add Staff Member</h3>
+    <hr>
+
+    <div class="d-flex align-items-center">
+        <img class="mx-auto" src="../../../../src/img/placeholder/profile/profile_12.png" alt="">
+    </div>
+
+
+
+    <hr>
+
+    <!-- Staff Member Add Form -->
+    <form id="staff-add-form" action="../../../../php/functions/add-staff-member.php" method="POST">
+
+        <!-- Badge Number -->
+        <div class="row my-3 w-50 mx-auto">
+            <label for="badge_number_Staff" class="col-5 col-form-label my-1">Badge Number</label>
+            <div class="col-7">
+                <input name="badge_number" type="text" class="form-control my-1 text-center" id="badge_number_Staff" readonly>
+            </div>
+        </div>
+
+        <script>
+            document.getElementById("badge_number_Staff").value = Math.random().toString().slice(2,15);
+        </script>
+
+        <hr>
+
+        <!-- Basic Information -->
+        <!-- 
+            DB input:
+                staff_first_name [varchar(255)]
+                staff_last_name [varchar(255)]
+                staff_birthdate [date]
+                staff_gender [varchar(6)]      
+        -->
+        <div class="form-group row mb-0">
+
+            <!-- First Name Input -->
+            <label for="input_First_Name_Staff" class="col-sm-2 col-form-label my-1">First Name</label>
+            <div class="col-sm-10">
+                <input name="first_name" type="text" class="form-control my-1 input" id="input_First_Name_Staff" placeholder="First Name" onfocusout="validatefirstname();">
+                <div class="invalid-feedback">
+                    Please provide a valid first name.
+                </div>
+            </div>
+
+            <!-- First Name Validation -->
+            <script>
+
+                function validatefirstname() {
+
+                    var elem = document.getElementById("input_First_Name_Staff");
+
+                    if((elem.value).trim() == "") {
+                        elem.value = "";
+                        elem.classList.add("is-invalid");
+
+
+                    } else {
+                        elem.classList.remove("is-invalid");
+
+                        elem.value = (elem.value).trim();
+                    }
+                }
+                
+            </script>
+
+            <!-- Last Name Input -->
+            <label for="input_Last_Name_Staff" class="col-sm-2 col-form-label my-1">Last Name</label>
+            <div class="col-sm-10">
+                <input name="last_name" type="text" class="form-control my-1 input" id="input_Last_Name_Staff" placeholder="Last Name" onfocusout="validatelastname();">
+                <div class="invalid-feedback">
+                    Please provide a valid last name.
+                </div>
+            </div>
+
+            <!-- Last Name Validation -->
+            <script>
+
+                function validatelastname() {
+
+                    var elem = document.getElementById("input_Last_Name_Staff");
+
+                    if((elem.value).trim() == "") {
+                        elem.value = "";
+                        elem.classList.add("is-invalid");
+
+
+                    } else {
+                        elem.classList.remove("is-invalid");
+
+                        elem.value = (elem.value).trim();
+                    }
+                }
+                
+            </script>
+
+            <!-- Birthdate -->
+            <label for="input_Birthdate_Staff" class="col-2 col-form-label my-1">Birthdate</label>
+            <div class="col-10">
+                <input name="birthdate" class="form-control my-1 input" type="date" value="2019-05-11" id="input_Birthdate_Staff" onfocusout="validatebirthdate();">
+                <div class="invalid-feedback">
+                    Please provide a valid birthdate.
+                </div>
+            </div>
+
+            <!-- Birthdate Validation -->
+            <script>
+
+                function validatebirthdate() {
+
+                    var elem = document.getElementById("input_Birthdate_Staff");
+
+                    if((elem.value).trim() == "") {
+                        elem.value = "";
+                        elem.classList.add("is-invalid");
+
+
+                    } else {
+                        elem.classList.remove("is-invalid");
+
+                        elem.value = (elem.value).trim();
+                    }
+
+                }           
+            
+            </script>
+
+            <!-- Gender -->
+            <label class="col-2 col-form-label my-1">Gender</label>
+            <div class="form-check form-check-inline mx-3">
+                <!-- Male Radio Button -->
+                <input class="form-check-input" type="radio" name="gender" id="input_Male_Staff" value="male" checked>
+                <label class="form-check-label" for="input_Male_Staff">Male</label>
+            </div>
+            <div class="form-check form-check-inline">
+                <!-- Female Radio Button -->
+                <input class="form-check-input" type="radio" name="gender" id="input_Female_Staff" value="female">
+                <label class="form-check-label" for="input_Female_Staff">Female</label>
+            </div>
+
+        </div>
+
+        <br>
+
+        <!-- Address Information -->
+        <!-- 
+            DB Input:
+                staff_street [varchar(255)]
+                staff_city [varchar(255)]
+                staff_state [varchar(255)]
+                staff_zip [int(10)]
+         -->
+        <div class="form-row">
+            
+            <!-- Street Name Input-->
+            <label for="input_Street_Staff" class="col-sm-1 col-form-label my-1">Street</label>
+            <div class="col-md-6">
+                <input name="street" type="text" class="form-control my-1 input" id="input_Street_Staff" placeholder="Street" onfocusout="validatestreet()">
+                <div class="invalid-feedback">
+                    Please provide a valid street name.
+                </div>
+            </div>
+
+            <!-- Street Validation -->
+            <script>
+
+                function validatestreet() {
+
+                    var elem = document.getElementById("input_Street_Staff");
+
+                    if((elem.value).trim() == "") {
+                        elem.value = "";
+                        elem.classList.add("is-invalid");
+
+
+                    } else {
+                        elem.classList.remove("is-invalid");
+
+                        elem.value = (elem.value).trim();
+                    }
+
+                }           
+            
+            </script>
+
+            <!-- City Name Input-->
+            <label for="input_City_Staff" class="col-sm-1 col-form-label my-1 text-right">City</label>
+            <div class="col-md-4">
+                <input name="city" type="text" class="form-control my-1 input" id="input_City_Staff" placeholder="City" onfocusout="validatecity();">
+                <div class="invalid-feedback">
+                    Please provide a valid city.
+                </div>
+            </div>
+
+            <!-- City Validation -->
+            <script>
+
+                function validatecity() {
+
+                    var elem = document.getElementById("input_City_Staff");
+
+                    if((elem.value).trim() == "") {
+                        elem.value = "";
+                        elem.classList.add("is-invalid");
+
+
+                    } else {
+                        elem.classList.remove("is-invalid");
+
+                        elem.value = (elem.value).trim();
+                    }
+
+                }           
+            
+            </script>
+
+            <!-- State Input -->
+            <label for="input_State_Staff" class="col-sm-1 col-form-label my-1">State</label>
+            <div class="col-md-5">
+                <select name="state" id="input_State_Staff" class="form-control my-1 input" onfocusout="validatestate();">
+                    <option selected>Choose...</option>
+                    <option value="AL">Alabama</option>
+                    <option value="AK">Alaska</option>
+                    <option value="AZ">Arizona</option>
+                    <option value="AR">Arkansas</option>
+                    <option value="CA">California</option>
+                    <option value="CO">Colorado</option>
+                    <option value="CT">Connecticut</option>
+                    <option value="DE">Delaware</option>
+                    <option value="DC">District Of Columbia</option>
+                    <option value="FL">Florida</option>
+                    <option value="GA">Georgia</option>
+                    <option value="HI">Hawaii</option>
+                    <option value="ID">Idaho</option>
+                    <option value="IL">Illinois</option>
+                    <option value="IN">Indiana</option>
+                    <option value="IA">Iowa</option>
+                    <option value="KS">Kansas</option>
+                    <option value="KY">Kentucky</option>
+                    <option value="LA">Louisiana</option>
+                    <option value="ME">Maine</option>
+                    <option value="MD">Maryland</option>
+                    <option value="MA">Massachusetts</option>
+                    <option value="MI">Michigan</option>
+                    <option value="MN">Minnesota</option>
+                    <option value="MS">Mississippi</option>
+                    <option value="MO">Missouri</option>
+                    <option value="MT">Montana</option>
+                    <option value="NE">Nebraska</option>
+                    <option value="NV">Nevada</option>
+                    <option value="NH">New Hampshire</option>
+                    <option value="NJ">New Jersey</option>
+                    <option value="NM">New Mexico</option>
+                    <option value="NY">New York</option>
+                    <option value="NC">North Carolina</option>
+                    <option value="ND">North Dakota</option>
+                    <option value="OH">Ohio</option>
+                    <option value="OK">Oklahoma</option>
+                    <option value="OR">Oregon</option>
+                    <option value="PA">Pennsylvania</option>
+                    <option value="RI">Rhode Island</option>
+                    <option value="SC">South Carolina</option>
+                    <option value="SD">South Dakota</option>
+                    <option value="TN">Tennessee</option>
+                    <option value="TX">Texas</option>
+                    <option value="UT">Utah</option>
+                    <option value="VT">Vermont</option>
+                    <option value="VA">Virginia</option>
+                    <option value="WA">Washington</option>
+                    <option value="WV">West Virginia</option>
+                    <option value="WI">Wisconsin</option>
+                    <option value="WY">Wyoming</option>
+                </select>
+                <div class="invalid-feedback">
+                    Please select a valid state.
+                </div>
+            </div>
+
+            <!-- State Validation -->
+            <script>
+
+                function validatestate() {
+
+                    var elem = document.getElementById("input_State_Staff");
+
+                    if((elem.value).trim() == "Choose...") {
+                        elem.classList.add("is-invalid");
+
+
+                    } else {
+                        elem.classList.remove("is-invalid");
+
+                    }
+
+                }           
+            
+            </script>
+
+            <!-- State Input -->
+            <label for="input_Zip_Staff" class="col-sm-2 col-form-label my-1 text-right">ZIP Code</label>
+            <div class="col-md-4">
+                <input name="zipcode" type="text" class="form-control my-1 input" id="input_Zip_Staff" placeholder="ZIP Code" onfocusout="validatezip();">
+                <div class="invalid-feedback">
+                    Please provide a valid ZIP code.
+                </div>
+            </div>
+        </div>
+
+        <!-- ZIP Validation -->
+        <script>
+
+            function validatezip() {
+
+                var elem = document.getElementById("input_Zip_Staff");
+
+                if((elem.value).trim() == "") {
+                    elem.value = "";
+                    elem.classList.add("is-invalid");
+
+
+                } else {
+                    elem.classList.remove("is-invalid");
+                    elem.value = (elem.value).trim();
+                }
+
+            }           
+        
+        </script>
+
+        <br>
+
+
+        <!-- Contact Information -->
+        <!-- 
+            DB Input:
+                staff_phone_number [varchar(255)]
+                staff_email [varchar(255)]
+         -->
+        <div class="form-row">
+
+            <!-- Phone Number -->
+            <label for="input_Phone_Number_Staff" class="col-sm-3 col-form-label my-1">Phone Number</label>
+            <div class="col-sm-9">
+                <input name="phone_number" type="text" class="form-control my-1 input" id="input_Phone_Number_Staff" placeholder="Phone Number" onfocusout="validatephonenumber();">
+                <div class="invalid-feedback">
+                    Please provide a valid phone number.
+                </div>
+            </div>
+
+            <!-- Phone Number Validation -->
+            <script>
+
+                function validatephonenumber() {
+
+                    var elem = document.getElementById("input_Phone_Number_Staff");
+
+                    if((elem.value).trim() == "") {
+                        elem.value = "";
+                        elem.classList.add("is-invalid");
+
+
+                    } else {
+                        elem.classList.remove("is-invalid");
+
+                        elem.value = (elem.value).trim();
+                    }
+
+                }           
+            
+            </script>
+
+            <!-- Email Input -->
+            <label for="input_Email_Staff" class="col-sm-2 col-form-label my-1">Email</label>
+            <div class="col-sm-10">
+                <input name="email" type="email" class="form-control my-1 input" id="input_Email_Staff" placeholder="Email" onfocusout="validateemail();">
+                <div class="invalid-feedback">
+                    Please provide a valid email.
+                </div>
+            </div>
+
+            <!-- Email Validation -->
+            <script>
+
+                function validateemail() {
+
+                    var elem = document.getElementById("input_Email_Staff");
+
+                    if((elem.value).trim() == "") {
+                        elem.value = "";
+                        elem.classList.add("is-invalid");
+
+
+                    } else {
+                        elem.classList.remove("is-invalid");
+
+                        elem.value = (elem.value).trim();
+                    }
+
+                }           
+            
+            </script>
+        </div>
+
+        <br>
+
+        <!-- Job Information -->
+        <!-- 
+            DB Input:
+
+
+         -->
+        <div class="form-row">
+
+            <!-- Job Title -->
+            <!-- 
+                Access:
+                    Manager:
+                        Read:
+                            Admin
+                            Member
+                            Books
+                        Write:
+                            Admin 
+                            Member
+                            Books
+
+                    Library Director:
+                        Read:
+                            Member
+                            Books
+                        Write:
+                            Member
+                            Books
+        
+                    Librarian:
+                        Read:
+                            Books
+                            Members
+                        Write:
+                            Books
+                    Librarian Assistant:
+                        Read:
+                            Books
+                        Write:
+                            Books                    
+             -->            
+            <label for="input_Job_Title_Staff" class="col-sm-2 col-form-label my-1">Job Title</label>
+            <div class="col-md-10">
+                <select name="job_title" id="input_Job_Title_Staff" class="form-control my-1 input" onfocusout="validatejobtitle();">
+                    <option selected>Choose...</option>
+                    <option value="manager">D000 - Manager</option>
+                    <option value="library-director">D001 - Library Director</option>
+                    <option value="librarian">D002 - Librarian</option>
+                    <option value="librarian-assistant">D003 - Librarian Assistant</option>
+                </select>
+                <div class="invalid-feedback">
+                    Please provide a valid job title.
+                </div>
+            </div>
+
+            <!-- State Validation -->
+            <script>
+
+                function validatejobtitle() {
+
+                    var elem = document.getElementById("input_Job_Title_Staff");
+
+                    if((elem.value).trim() == "Choose...") {
+                        elem.classList.add("is-invalid");
+                    } else {
+                        elem.classList.remove("is-invalid");
+
+                    }
+
+                }           
+            
+            </script>
+
+
+            <!-- Pay  Style [hourly ? salary] -->
+            <label class="col-2 col-form-label my-1">Pay Style</label>
+            <!-- Hourly Radio Button -->
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="pay_style" id="input_Hourly_Staff" value="hourly"
+                    onclick="showHourly();" checked>
+                <label class="form-check-label" for="input_Hourly_Staff">Hourly</label>
+            </div>
+            <!-- Salary Radio Button -->
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="pay_style" id="input_Salary_Staff" value="salary"
+                    onclick="showSalary();">
+                <label class="form-check-label" for="input_Salary_Staff">Salary</label>
+            </div>
+
+            <!-- Show the rest of the input feilds based on the pay style -->
+            <script>
+                function showHourly() {
+                    // Show the wage and the max hours feilds
+                    document.getElementById("hourly").style.display = "flex";
+                    document.getElementById("salary").style.display = "none";
+                    document.getElementById("input_Pay_Rate_Salary_Staff").classList.remove("input");
+                    
+                    document.getElementById("input_Pay_Rate_Hourly_Staff").value = "";
+                    document.getElementById("input_Max_Hours_Staff").value = "";
+                    
+                }
+
+                function showSalary() {
+                    // Show the annual pay feild
+                    document.getElementById("hourly").style.display = "none";
+                    document.getElementById("salary").style.display = "flex";
+                    document.getElementById("input_Pay_Rate_Hourly_Staff").classList.remove("input");
+                    document.getElementById("input_Max_Hours_Staff").classList.remove("input");
+
+                    document.getElementById("input_Pay_Rate_Salary_Staff").value = "";
+
+
+                }
+            
+            </script>
+        </div>
+
+        <!-- Hourly Feilds -->
+        <div class="form-row" id="hourly">
+
+            <!-- Pay Rate -->
+            <label for="input_Pay_Rate_Hourly_Staff" class="col-sm-2 col-form-label my-1">Pay Rate</label>
+            <div class="col-sm-4">
+                <input name="wage" type="text" class="form-control my-1 input" id="input_Pay_Rate_Hourly_Staff" placeholder="Pay Rate" onfocusout="validatewage();">
+                <div class="invalid-feedback">
+                    Please provide a valid wage.
+                </div>
+            </div>
+
+            <!-- Email Validation -->
+            <script>
+
+                function validatewage() {
+
+                    var elem = document.getElementById("input_Pay_Rate_Hourly_Staff");
+
+                    if((elem.value).trim() == "")  {
+                        elem.value = "";
+                        elem.classList.add("is-invalid");
+                        
+                    } else if(parseFloat((elem.value).replace(/[^\d.-]/g , '')) > 7.35){
+                        elem.classList.remove("is-invalid");
+
+                        elem.value = parseFloat((elem.value).replace(/[^\d.-]/g , ''))
+                    } else {
+                        elem.value = "";
+                        elem.classList.add("is-invalid");
+                    }
+
+                }           
+            
+            </script>
+
+            <!-- Max Hours -->
+            <label for="input_Max_Hours_Staff" class="col-sm-2 col-form-label my-1 text-right">Max Hours</label>
+            <div class="col-sm-4">
+                <input name="max_hours" type="text" class="form-control my-1 input" id="input_Max_Hours_Staff" placeholder="Max Hours" onfocusout="validatemaxhours();">
+                <div class="invalid-feedback">
+                    Please provide a valid maximum number of hours.
+                </div>
+            </div>
+        </div>
+
+        <!-- Hour Max Validation -->
+        <script>
+
+            function validatemaxhours() {
+
+                var elem = document.getElementById("input_Max_Hours_Staff");
+
+                if((elem.value).trim() == "")  {
+                    elem.value = "";
+                    elem.classList.add("is-invalid");
+                    
+                } else if((parseFloat((elem.value).replace(/[^\d.-]/g , '')) > 0) && (parseFloat((elem.value).replace(/[^\d.-]/g , '')) <= 40)){
+                    elem.classList.remove("is-invalid");
+                    elem.value = parseFloat((elem.value).replace(/[^\d.-]/g , ''))
+                } else {
+                    elem.value = "";
+                    elem.classList.add("is-invalid");
+                }
+
+            }           
+        
+        </script>
+
+        <!-- Salary -->
+        <div class="form-row" id="salary" style="display: none">
+            
+            <!-- Annual Pay -->
+            <label for="input_Pay_Rate_Salary_Staff" class="col-sm-2 col-form-label my-1">Annual Pay</label>
+            <div class="col-sm-4">
+                <input name="annual_salary" type="text" class="form-control my-1" id="input_Pay_Rate_Salary_Staff" placeholder="Annual Pay" onfocusout="validatesalary();">
+                <div class="invalid-feedback">
+                    Please provide a valid salary.
+                </div>
+            </div>
+        </div>
+
+        <!-- Salary Validation -->
+        <script>
+
+            function validatesalary() {
+
+                var elem = document.getElementById("input_Pay_Rate_Salary_Staff");
+
+                if((elem.value).trim() == "")  {
+                    elem.value = "";
+                    elem.classList.add("is-invalid");
+                    
+                } else if(parseFloat((elem.value).replace(/[^\d.-]/g , '')) > 0){
+                    elem.classList.remove("is-invalid");
+                    elem.value = parseFloat((elem.value).replace(/[^\d.-]/g , ''))
+                } else {
+                    elem.value = "";
+                    elem.classList.add("is-invalid");
+                }
+
+            }           
+        
+        </script>
+
+        <hr>
+
+        <!-- Submit -->
+        <div class="text-center pt-4">
+            <button type="button" class="btn btn-primary w-50" onclick="validateform();">Submit</button>
+        </div>
+
+        <script>
+            function validateform() {
+
+                var error = document.getElementsByClassName("is-invalid");
+                var input_fields = document.getElementsByClassName("input");
+
+                var pay_style = document.getElementsByName("pay_style");
+                
+                if (pay_style[0].checked) {
+                    document.getElementById("input_Pay_Rate_Salary_Staff").value = 0;
+                } else {
+                    document.getElementById("input_Pay_Rate_Hourly_Staff").value = 0;
+                    document.getElementById("input_Max_Hours_Staff").value = 0;
+                }
+
+                
+
+
+
+                var empty = 0;
+
+                for (var i = 0; i < input_fields.length; i++) {
+                    if ((input_fields[i].value == "") || (input_fields[i].value == "Choose...")){
+                        input_fields[i].classList.add("is-invalid");
+                        empty++;
+                    } else {
+                        input_fields[i].classList.remove("is-invalid");
+                    }
+                }
+
+                
+                
+
+                if ((error.length == 0) && (empty == 0)){
+                    document.getElementById("staff-add-form").submit();
+                } else {
+                    for (var i = 0; i < empty.length; i++) {
+                        empty[i].classList.add("is-invalid");
+                    } 
+                }
+
+                console.log(empty); 
+                console.log(error.length)
+            }
+        </script>
+
+    </form>
+
+</div>
